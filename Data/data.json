@@ -1,0 +1,51 @@
+[
+    {
+        "id": "1",
+        "name": "Fanta",
+        "image": "assets/logos/Fanta.jpeg",
+        "image-canette": "assets/canette/canette-fanta.jpeg",
+        "prix": 1000
+    },
+    {
+        "id": "2",
+        "name": "Sprite",
+        "image": "assets/logos/sprite.jpg",
+        "image-canette": "assets/canette/canette-sprite.jpeg",
+        "prix": 1500
+    },
+    {
+        "id": "3",
+        "name": "A&W",
+        "image": "assets/logos/aw.jpg",
+        "image-canette": "assets/canette/canette-aw.jpeg",
+        "prix": 800
+    },
+    {
+        "id": "4",
+        "name": "Mtn Dew",
+        "image": "assets/logos/mtn-dew.png",
+        "image-canette": "assets/canette/canette-mtn-dew.png",
+        "prix": 1200
+    },
+    {
+        "id": "5",
+        "name": "Orangina",
+        "image": "assets/logos/orangina.jpeg",
+        "image-canette": "assets/canette/canette-orangina.jpeg",
+        "prix": 1000
+    },
+    {
+        "id": "6",
+        "name": "Pepsi",
+        "image": "assets/logos/pepsi.jpg",
+        "image-canette": "assets/canette/canette-pepsi.jpeg",
+        "prix": 1500
+    },
+    {
+        "id": "7",
+        "name": "Coca-Cola",
+        "image": "assets/logos/coca-cola.png",
+        "image-canette": "assets/canette/canette-coca-cola.png",
+        "prix": 1000
+    }
+]
