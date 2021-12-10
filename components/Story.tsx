@@ -1,32 +1,80 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, View, Image, FlatList } from 'react-native';
+import DATA from '../Data/data.json'
 
-const img1 = require('../assets/logos/Fanta.jpeg')
-const img2 = require('../assets/logos/sprite.jpg')
- 
 interface DataStoryProps {
-    imageUrl: string
+    name: string
 }
 
+
 function DataStory(props: DataStoryProps) {
-    
-    return (
+  const boissonName: string = props.name.toLowerCase();
+console.log('------------------------------')
+console.log(' image name :', boissonName);
+
+
+  switch(boissonName) {
+    case "a&w": {
+        return (
+          <View>
+            <Image style={styles.image}  source={require("../assets/logos/aw.jpg")}/>
+          </View>
+        )}
+    case "coca-cola": {
+      return (
         <View>
-            <Image style={styles.image} source={{uri: props.imageUrl}}/>
-            <Image style={styles.image} source={img1}/>
-            <Image style={styles.image} source={img2}/>
+          <Image style={styles.image}  source={require("../assets/logos/coca-cola.png")}/>
         </View>
-    )
+      )}
+
+    case "pepsi": {
+      return (
+        <View>
+          <Image style={styles.image}  source={require("../assets/logos/pepsi.jpg")}/>
+        </View>
+      )}
+    
+    case "orangina": {
+      return (
+        <View>
+          <Image style={styles.image}  source={require("../assets/logos/orangina.jpeg")}/>
+        </View>
+      )}
+
+    case "mtn-dew": {
+      return (
+        <View>
+          <Image style={styles.image}  source={require("../assets/logos/mtn-dew.png")}/>
+        </View>
+      )}
+
+    case "fanta": {
+      return (
+        <View>
+          <Image style={styles.image}  source={require("../assets/logos/Fanta.jpeg")}/>
+        </View>
+      )}
+
+  case "sprite": {
+    return (
+      <View>
+        <Image style={styles.image}  source={require("../assets/logos/sprite.jpg")}/>
+      </View>
+    )}
+
+  default: { return (<></>)}
+  }
 }
 
 
 export default function Story() {
-  
-  const img = require('../assets/logos/aw.jpg')
-  
   return (
     <View style={styles.container}>
-        <DataStory imageUrl={img}/>
+       <FlatList
+        horizontal
+        data={DATA}
+        renderItem={({item}) => <DataStory name={item.name}></DataStory>}
+        keyExtractor={item => item.id}/>
     </View>
   );
 }
@@ -34,7 +82,7 @@ export default function Story() {
 const styles = StyleSheet.create({
   container: {
     height: 100,
-    marginTop: 10,
+    marginTop: 20,
   },
 
   image: {
@@ -42,6 +90,8 @@ const styles = StyleSheet.create({
       width: 70,
       borderRadius: 50,
       borderColor: '#50ae60',
-      borderWidth: 3
+      borderWidth: 3,
+      marginRight: 10,
+      marginLeft: 10
   }
 });
