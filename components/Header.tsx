@@ -19,7 +19,6 @@ export default function Header(props: HeaderProps) {
 const styles = StyleSheet.create({
   container: {
     marginTop: 70,
-    marginLeft: 30
   },
 
   BigText: {
