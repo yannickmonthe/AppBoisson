@@ -9,8 +9,8 @@ interface DataStoryProps {
 
 function DataStory(props: DataStoryProps) {
   const boissonName: string = props.name.toLowerCase();
-console.log('------------------------------')
-console.log(' image name :', boissonName);
+ // console.log('------------------------------')
+ // console.log(' image name :', boissonName);
 
 
   switch(boissonName) {

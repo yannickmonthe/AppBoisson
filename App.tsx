@@ -1,6 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Footer from './components/Footer';
 import Header from './components/Header';
 import Story from './components/Story';
 
@@ -10,6 +10,8 @@ export default function App() {
     <View style={styles.container}>
       <Header name='Monthe' surname='Yannick'/>
       <Story/>
+
+      <Footer/>
     </View>
   );
 }
