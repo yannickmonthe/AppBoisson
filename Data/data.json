@@ -2,50 +2,43 @@
     {
         "id": "1",
         "name": "Fanta",
-        "image": "assets/logos/Fanta.jpeg",
-        "image-canette": "assets/canette/canette-fanta.jpeg",
-        "prix": 1000
+        "prix": 1000,
+        "description" : "La Fanta est tellement sucre mais j'aime la couleur Orange"
     },
     {
         "id": "2",
         "name": "Sprite",
-        "image": "assets/logos/sprite.jpg",
-        "image-canette": "assets/canette/canette-sprite.jpeg",
-        "prix": 1500
+        "prix": 1500,
+        "description" : "Le Sprite ce jus gazeux qui est si petillant"
     },
     {
         "id": "3",
         "name": "A&W",
-        "image": "assets/logos/aw.jpg",
-        "image-canette": "assets/canette/canette-aw.jpeg",
-        "prix": 800
+        "prix": 800,
+        "description" : "A&W une boisson que je n'ai jamais essayer"
     },
     {
         "id": "4",
         "name": "Mtn-Dew",
-        "image": "assets/logos/mtn-dew.png",
-        "image-canette": "assets/canette/canette-mtn-dew.png",
-        "prix": 1200
+        "prix": 1200,
+        "description" : "Le Moutain Dew les pubs de cette boisson innondent la toile, est tellement mauvaise je deteste le gout"
     },
     {
         "id": "5",
         "name": "Orangina",
-        "image": "assets/logos/orangina.jpeg",
-        "image-canette": "assets/canette/canette-orangina.jpeg",
-        "prix": 1000
+        "prix": 1000,
+        "description" : "L'Orangina est tellement sucre mais j'aime la couleur Orange"
     },
     {
         "id": "6",
         "name": "Pepsi",
-        "image": "assets/logos/pepsi.jpg",
-        "image-canette": "assets/canette/canette-pepsi.jpeg",
-        "prix": 1500
+        "prix": 1500,
+        "description" : "Le Pepsi boisson concurrente du c*ca shutt, dites rien a Messi une alternative de choix pour son rival americain"
     },
     {
         "id": "7",
         "name": "Coca-Cola",
-        "image": "assets/logos/coca-cola.png",
-        "image-canette": "assets/canette/canette-coca-cola.png",
-        "prix": 1000
+        "prix": 1000,
+        "description" : "Le Coca-cola est une boisson emblematique americaine qui fait la joie des fast-food depuis belle lurette"
     }
 ]

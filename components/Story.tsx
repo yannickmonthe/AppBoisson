@@ -1,106 +1,24 @@
 import React from 'react';
 import { StyleSheet, View, Image, FlatList , Text} from 'react-native';
-import DATA from '../Data/data.json'
+import DATA from '../Data/data.json';
+import Images from '../global'
 
 interface DataStoryProps {
-    name: string
+    name: string,
+    image: any
 }
 
-
 function DataStory(props: DataStoryProps) {
-  const boissonName: string = props.name.toLowerCase();
- // console.log('------------------------------')
- // console.log(' image name :', boissonName);
-
-
-  switch(boissonName) {
-    case "a&w": {
-        return (
-        <View style={styles.Box}>
-          <View>
-            <Image style={styles.image}  source={require("../assets/logos/aw.jpg")}/>
-          </View>
-          <View>
-            <Text style={styles.text}>{boissonName}</Text>
-          </View>
-        </View>
-        )}
-    case "coca-cola": {
-      return (
-        <View style={styles.Box}>
-        <View>
-          <Image style={styles.image}  source={require("../assets/logos/coca-cola.png")}/>
-        </View>
-        <View>
-          <Text style={styles.text}>{boissonName}</Text>
-        </View>
-      </View>
-      )}
-
-    case "pepsi": {
-      return (
-        <View style={styles.Box}>
-        <View>
-          <Image style={styles.image}  source={require("../assets/logos/pepsi.jpg")}/>
-        </View>
-        <View>
-          <Text style={styles.text}>{boissonName}</Text>
-        </View>
-      </View>
-        
-      )}
-    
-    case "orangina": {
-      return (
-        <View style={styles.Box}>
-        <View>
-          <Image style={styles.image}  source={require("../assets/logos/orangina.jpeg")}/>
-        </View>
-        <View>
-          <Text style={styles.text}>{boissonName}</Text>
-        </View>
-      </View>
-      )}
-
-    case "mtn-dew": {
-      return (
-        <View style={styles.Box}>
-        <View>
-          <Image style={styles.image}  source={require("../assets/logos/mtn-dew.png")}/>
-        </View>
-        <View>
-          <Text style={styles.text}>{boissonName}</Text>
-        </View>
-      </View>
-      )}
-
-    case "fanta": {
-      return (
-        <View style={styles.Box}>
-        <View>
-          <Image style={styles.image}  source={require("../assets/logos/Fanta.jpeg")}/>
-        </View>
-        <View>
-          <Text style={styles.text}>{boissonName}</Text>
-        </View>
-      </View>
-      )}
-
-  case "sprite": {
-    return (
-      <View style={styles.Box}>
+  return(
+    <View style={styles.Box}>
       <View>
-        <Image style={styles.image}  source={require("../assets/logos/sprite.jpg")}/>
+        <Image style={styles.image}  source={props.image}/>
       </View>
       <View>
-        <Text style={styles.text}>{boissonName}</Text>
+        <Text numberOfLines={1} style={styles.text}>{props.name}</Text>
       </View>
     </View>
-      
-    )}
-
-  default: { return (<></>)}
-  }
+  );
 }
 
 
@@ -111,7 +29,7 @@ export default function Story() {
         showsHorizontalScrollIndicator={false}
         horizontal
         data={DATA}
-        renderItem={({item}) => <DataStory name={item.name}></DataStory>}
+        renderItem={({item}) => <DataStory name={item.name} image={Images.logo[item.name]}></DataStory>}
         keyExtractor={item => item.id}/>
     </View>
   );
@@ -141,6 +59,6 @@ const styles = StyleSheet.create({
       marginTop: 8,
       textAlign: 'center',
       color: 'white',
-      fontSize: 15
+      fontSize: 13
     }
 });
