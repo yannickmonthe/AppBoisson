@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import {StyleSheet, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
+
+
 
 interface IconProps {
     iconName: string,
@@ -82,7 +85,7 @@ export default function Footer() {
         <IconFooter iconName='grid-outline' iconColor={gridColor}/>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={ () => { isSetColor('cart') }}>
+      <TouchableOpacity onPress={ () => { isSetColor('cart')}}>
         <IconFooter iconName='cart-outline' iconColor={cartColor}/>
       </TouchableOpacity>
 
