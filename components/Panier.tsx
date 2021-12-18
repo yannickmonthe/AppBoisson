@@ -1,12 +1,18 @@
 import React from 'react';
-import { StyleSheet, View  } from 'react-native';
-import Footer from './Footer';
+import { StyleSheet, View, Text  } from 'react-native';
+import PanierList from './PanierList';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 export default function Panier() {
 
   return (
     <View style={styles.container}>
+      <View style={styles.backPage}> 
+        <Text style={styles.icon}><MaterialCommunityIcons name="arrow-left" color={"black"} size={30} /> </Text>
+        <Text style={styles.titre}> "" TEST ""</Text>   
+      </View>
+      <PanierList/>
     </View>
   );
 }
@@ -14,6 +20,22 @@ export default function Panier() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#747474',
+    backgroundColor: '#747474'
   },
+
+  backPage: {
+    flexDirection: 'row',
+    height: 100,
+    paddingTop: 60,
+  },
+
+  titre: {
+    flex: 1,
+    backgroundColor: 'transparent',
+    textAlign: 'center',
+  },
+
+  icon: {
+    paddingLeft: 20,
+  }
 });
