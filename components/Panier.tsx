@@ -9,8 +9,8 @@ export default function Panier() {
   return (
     <View style={styles.container}>
       <View style={styles.backPage}> 
-        <Text style={styles.icon}><MaterialCommunityIcons name="arrow-left" color={"black"} size={30} /> </Text>
-        <Text style={styles.titre}> "" TEST ""</Text>   
+        <Text style={styles.icon}><MaterialCommunityIcons name="arrow-left" color={"white"} size={30} /> </Text>
+        <Text style={styles.titre}>Panier d'achat</Text>   
       </View>
       <PanierList/>
     </View>
@@ -27,12 +27,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 100,
     paddingTop: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
   },
 
   titre: {
     flex: 1,
-    backgroundColor: 'transparent',
     textAlign: 'center',
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold'
   },
 
   icon: {
