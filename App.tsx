@@ -5,6 +5,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomePage from './components/HomePage';
 import Panier from './components/Panier';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Person from './components/Person';
+import Signal from './components/Signal';
+import Inventaire from './components/Inventaire';
 
 
 const Tabs = createBottomTabNavigator();
@@ -23,28 +26,29 @@ const IconSize = 40;
 
 
         <Tabs.Screen name="Panier" component={Panier} options={{
-          tabBarBadge: 1,
+          tabBarBadge: 0,
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="cart-outline" color={color} size={IconSize} />
           ),
         }}/>
 
 
-        <Tabs.Screen name="Add" component={HomePage} options={{
+        <Tabs.Screen name="Add" component={Inventaire} options={{
+          tabBarBadge: 7,
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="plus-circle-outline" color={color} size={IconSize} />
           ),
         }}/>
 
 
-        <Tabs.Screen name="Signal" component={HomePage} options={{
+        <Tabs.Screen name="Signal" component={Signal} options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="signal" color={color} size={IconSize} />
           ),
         }}/>
 
 
-        <Tabs.Screen name="Personne" component={HomePage} options={{
+        <Tabs.Screen name="Personne" component={Person} options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" color={color} size={IconSize} />
           ),

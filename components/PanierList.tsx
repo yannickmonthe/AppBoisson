@@ -19,7 +19,9 @@ function ItemPanier(props: ItemPanierProps) {
       </View>
 
       <View style={styles.desc}>
-          <Text>TEST</Text>
+          <Text style={styles.titre}>{props.name}</Text>
+          <Text style={{...styles.titre, fontSize:12, fontWeight: 'normal'} } numberOfLines={4}>{props.description}</Text>
+          <Text style={styles.titre}>{props.prix} CFA</Text>
       </View>
     </View>
   );
@@ -53,8 +55,7 @@ const styles = StyleSheet.create({
   },
 
   image: {
-      marginLeft: 30,
-      marginTop: 20,
+      margin: 20,
       backgroundColor: '#656565',
       height: 150,
       width: 100,
@@ -62,7 +63,15 @@ const styles = StyleSheet.create({
   },
 
   desc: {
-    marginLeft: 30,
-    marginTop: 20,
+    flex: 1,
+    marginTop: 40,
+    marginBottom: 20
+  },
+
+  titre: {
+    marginBottom: 7,
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold'
   }
 });
