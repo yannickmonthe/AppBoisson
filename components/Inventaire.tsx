@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity  } from 'react-native';
-import PanierList from './PanierList';
+import Stock from './Stock';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 
 
 export default function Inventaire({navigation}) {
@@ -9,12 +10,12 @@ export default function Inventaire({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.backPage}> 
-      <TouchableOpacity onPress={ () => { navigation.push('Home') }}>
+      <TouchableOpacity onPress={ () => { }}>
           <Text style={styles.icon}><MaterialCommunityIcons name="arrow-left" color={"white"} size={30} /> </Text>
       </TouchableOpacity>
       <Text style={styles.titre}>Inventaire de boissons</Text>   
       </View>
-      <PanierList/>
+      <Stock/>
     </View>
   );
 }

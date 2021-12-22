@@ -11,7 +11,7 @@ interface ItemPanierProps {
     image: any,
   }
   
-function ItemPanier(props: ItemPanierProps) {
+function ItemStock(props: ItemPanierProps) {
   return(
     <View style={styles.item}>
       <View>
@@ -27,14 +27,14 @@ function ItemPanier(props: ItemPanierProps) {
   );
 }
 
-export default function PanierList() {
+export default function Stock() {
 
   return (
     <View style={styles.container}>
         <FlatList
         showsHorizontalScrollIndicator={false}
         data={DATA}
-        renderItem={({item}) => <ItemPanier name={item.name} image={Images.canette[item.name]} description={item.description} prix={item.prix}  />}
+        renderItem={({item}) => <ItemStock name={item.name} image={Images.canette[item.name]} description={item.description} prix={item.prix}  />}
         keyExtractor={item => item.id}/>
     </View>
   );
