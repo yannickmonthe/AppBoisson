@@ -1,32 +1,36 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, View, Image, FlatList , Text} from 'react-native';
+import DATA from '../Data/data.json';
+import Images from '../global'
 
-const img1 = require('../assets/logos/Fanta.jpeg')
-const img2 = require('../assets/logos/sprite.jpg')
- 
 interface DataStoryProps {
-    imageUrl: string
+    name: string,
+    image: any
 }
 
 function DataStory(props: DataStoryProps) {
-    
-    return (
-        <View>
-            <Image style={styles.image} source={{uri: props.imageUrl}}/>
-            <Image style={styles.image} source={img1}/>
-            <Image style={styles.image} source={img2}/>
-        </View>
-    )
+  return(
+    <View style={styles.Box}>
+      <View>
+        <Image style={styles.image}  source={props.image}/>
+      </View>
+      <View>
+        <Text numberOfLines={1} style={styles.text}>{props.name}</Text>
+      </View>
+    </View>
+  );
 }
 
 
 export default function Story() {
-  
-  const img = require('../assets/logos/aw.jpg')
-  
   return (
     <View style={styles.container}>
-        <DataStory imageUrl={img}/>
+      <FlatList
+        showsHorizontalScrollIndicator={false}
+        horizontal
+        data={DATA}
+        renderItem={({item}) => <DataStory name={item.name} image={Images.logo[item.name]}></DataStory>}
+        keyExtractor={item => item.id}/>
     </View>
   );
 }
@@ -34,7 +38,12 @@ export default function Story() {
 const styles = StyleSheet.create({
   container: {
     height: 100,
-    marginTop: 10,
+    marginTop: 20,
+  },
+  
+  Box: {
+    width: 70,
+    marginRight: 12,
   },
 
   image: {
@@ -42,6 +51,14 @@ const styles = StyleSheet.create({
       width: 70,
       borderRadius: 50,
       borderColor: '#50ae60',
-      borderWidth: 3
-  }
+      borderWidth: 3,
+      marginRight: 10,
+  },
+
+  text: {
+      marginTop: 8,
+      textAlign: 'center',
+      color: 'white',
+      fontSize: 13
+    }
 });
