@@ -1,165 +1,85 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Image, FlatList } from 'react-native';
 import DATA from '../Data/data.json';
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import Images from "../global";
 
-interface componentNameProps {}
-interface ItemProps {
-    imageUrl: string,
-    nom: string,
-    prix:string,
-    test:string
+interface ItemPanierProps {
+  name: string;
+  prix: number;
+  image: any;
 }
 
-function ItemStory(props: ItemProps) {
-  let boissonName: string = "";
-  if (props != undefined) {
-         boissonName = props.nom.toLowerCase();
-  }
- // console.log('------------------------------')
- // console.log(' image name :', boissonName);
-
-
-  switch(boissonName) {
-    case "a&w": {
-        return (
-        <View style={stylesMain.Box}>
-          <View>
-            <Image style={stylesMain.image}  source={require("../assets/logos/aw.jpg")}/>
-          </View>
-          <View>
-            <Text style={stylesMain.text}>{boissonName}</Text>
-          </View>
-        </View>
-        )}
-    case "coca-cola": {
-      return (
-        <View style={stylesMain.Box}>
-        <View>
-          <Image style={stylesMain.image}  source={require("../assets/logos/coca-cola.png")}/>
-        </View>
-        <View>
-          <Text style={stylesMain.text}>{boissonName}</Text>
-        </View>
-      </View>
-      )}
-
-    case "pepsi": {
-      return (
-        <View style={stylesMain.Box}>
-        <View>
-          <Image style={stylesMain.image}  source={require("../assets/logos/pepsi.jpg")}/>
-        </View>
-        <View>
-          <Text style={stylesMain.text}>{boissonName}</Text>
-        </View>
-      </View>
-
-      )}
-
-    case "orangina": {
-      return (
-        <View style={stylesMain.Box}>
-        <View>
-          <Image style={stylesMain.image}  source={require("../assets/logos/orangina.jpeg")}/>
-        </View>
-        <View>
-          <Text style={stylesMain.text}>{boissonName}</Text>
-        </View>
-      </View>
-      )}
-
-    case "mtn-dew": {
-      return (
-        <View style={stylesMain.Box}>
-        <View>
-          <Image style={stylesMain.image}  source={require("../assets/logos/mtn-dew.png")}/>
-        </View>
-        <View>
-          <Text style={stylesMain.text}>{boissonName}</Text>
-        </View>
-      </View>
-      )}
-
-    case "fanta": {
-      return (
-        <View style={stylesMain.Box}>
-        <View>
-          <Image style={stylesMain.image}  source={require("../assets/logos/Fanta.jpeg")}/>
-        </View>
-        <View>
-          <Text style={stylesMain.text}>{boissonName}</Text>
-        </View>
-      </View>
-      )}
-
-  case "sprite": {
-    return (
-      <View style={stylesMain.Box}>
-      <View>
-        <Image style={stylesMain.image}  source={require("../assets/logos/sprite.jpg")}/>
-      </View>
-      <View>
-        <Text style={stylesMain.text}>{boissonName}</Text>
-      </View>
-    </View>
-
-    )}
-
-  default: { return (<></>)}
-  }
-}
-const Item = (props: ItemProps) => (
-
-    <View style={stylesMain.item}>
-    {/* <Image style={stylesMain.image}  source={require("../assets/logos/aw.jpg")}/> */}
-        <View>
-          <Text style={stylesMain.nom}>{props.nom}</Text>
-          <Text style={stylesMain.nom}>{props.prix}</Text>
-        </View>
-
-    </View>
-);
-
-const componentName = (props: componentNameProps) => {
-    const renderItem = ({ item }) => (
-      <Item imageUrl={item.imageUrl} nom={item.nom} prix={ item.prix}/>
-  );
+function ItemPanier(props: ItemPanierProps) {
   return (
-    <View style={styles.container}>
+    <View style={styles.item}>
+      <Image style={styles.image} source={props.image} />
+      <Text style={styles.texte}>{props.name}</Text>
+      <View style={styles.description}>
+        <Text style={styles.prix}>{props.prix} CFA</Text>
+        <MaterialCommunityIcons name="cart-outline" color="white" size={26} />
+      </View>
+    </View>
+  );
+}
+
+export default function PanierList() {
+  return (
+    <View>
       <FlatList
         showsHorizontalScrollIndicator={false}
         horizontal
         data={DATA}
-        renderItem={({item}) => <ItemStory />}
-        keyExtractor={(item: { id: any; }) => item.id} />
+        renderItem={({ item }) => (
+          <ItemPanier
+            name={item.name}
+            image={Images.canette[item.name]}
+            prix={item.prix}
+          />
+        )}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   );
-};
-
-export default componentName;
+}
 
 const styles = StyleSheet.create({
-  container: {height: 100}
-});
-
-const stylesMain = StyleSheet.create({
-  item: {},
+  item: {
+    flex: 1,
+    backgroundColor: "lightgrey",
+    borderRadius: 20,
+    borderWidth: 1,
+    margin: 10,
+  },
   image: {
-    height: 70,
-    width: 70,
-    borderColor: "#50ae60",
-    borderWidth: 3,
+    display: "flex",
+    shadowColor: "black",
+    shadowOffset: {
+      width: -30,
+      height: -3,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 29.0,
+
+    elevation: 24,
+    width: 180,
+    height: 400,
   },
-  nom: {},
-  prix: {},
-  text: {
-    marginTop: 8,
-    textAlign: "center",
-    color: "white",
-    fontSize: 15,
+  texte: {
+    marginLeft: 10,
+    marginBottom: 5,
+    fontWeight: "bold",
   },
-  Box: {
-    width: 70,
-    marginRight: 12,
+  description: {
+    display: "flex",
+    justifyContent: "space-between",
+    flexDirection: "row",
+    marginBottom: 50,
+    marginLeft: 10,
+    marginRight: 20,
+  },
+  prix: {
+    fontSize: 20,
+    fontWeight: "bold",
   },
 });
